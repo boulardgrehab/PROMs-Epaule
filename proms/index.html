@@ -113,8 +113,6 @@ $('print').onclick=()=>{
    if(kind==='spadi')for(const sub of [['Douleur','p'],['Incapacité','d']]){html+=`<tr><td>${sub[0]}</td>`+chosen.map(side=>{const c=calculateFor(side,kind);return `<td>${c?c[sub[1]]+' %':'—'}</td>`}).join('')+'</tr>'}
    html+='</tfoot></table></div>';
  }
- html+='<div class="report-test"><h2>Bilan initial — Rééducation de l’épaule</h2>';for(const group of initialFields){html+='<h3>'+esc(group.section)+'</h3><table><tbody>';for(const [key,label] of group.fields){const v=initialData[key];html+='<tr><td>'+esc(label)+'</td><td>'+esc(Array.isArray(v)?v.join(', '):(v||'Non renseigné'))+'</td></tr>'}html+='</tbody></table>'}html+='</div>'; 
-
  $('report').innerHTML=html;
  $('pdf-preview').classList.add('open');
  $('pdf-preview').scrollIntoView({behavior:'smooth',block:'start'});
@@ -150,8 +148,6 @@ function generatePdf(){
   if(kind==='spadi')for(const [label,key] of [['Douleur','p'],['Incapacité','d']])tableRow([label,...chosen.map(side=>{const c=calculateFor(side,kind);return c?c[key]+' %':'-'})]);
   y+=22;
  }
- if(y>H-bottom-80)newPage();txt('Bilan initial - Reeducation de l epaule',left,y,13,true);y+=25;
- for(const group of initialFields){if(y>H-bottom-75)newPage();txt(group.section,left,y,11,true);y+=15;for(const [key,label] of group.fields){const v=initialData[key];tableRow([label,Array.isArray(v)?v.join(', '):(v||'Non renseigne')])}y+=16}
  newPage();
  const objects=[null];function add(str){objects.push(str);return objects.length-1}
  const catalog=add('');const root=add('');const f1=add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>');const f2=add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>');const refs=[];
