@@ -1,0 +1,153 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bilan initial – Épaule</title><style>:root{font-family:system-ui,Arial;color:#182c42;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}.wrap{max-width:820px;margin:auto;padding:20px}header{background:#173450;color:white;border-radius:16px;padding:22px}section{background:white;border:1px solid #dce4ee;border-radius:14px;padding:18px;margin-top:14px}.muted{color:#65778a;font-size:13px}input,select,button,textarea{font:inherit}input[type=text],input[type=date],select,textarea{padding:10px;border:1px solid #bccbd9;border-radius:8px;max-width:100%;width:100%}label{display:block;margin:8px 0}.fields{display:grid;grid-template-columns:2fr 1fr;gap:12px}.question{border-top:1px solid #e3e9ee;padding:14px 0}.question strong{display:block;margin-bottom:9px}.scale{display:flex;gap:15px;align-items:center}.scale input{flex:1;accent-color:#1678ad}.scale output{min-width:55px;font-weight:bold}.ends{display:flex;justify-content:space-between;font-size:12px;color:#697b8d}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.tabs button,button{border:0;border-radius:9px;padding:12px 16px;background:#173450;color:white;cursor:pointer}.tabs button[aria-selected=false]{background:#dbe6ef;color:#173450}.actions{display:flex;gap:10px;flex-wrap:wrap}.actions button:nth-child(2){background:#e5edf4;color:#173450}.score{font-size:26px;font-weight:750}.report{display:none}.pdf-preview{display:none}.pdf-preview.open{display:block}.pdf-preview .report{display:block}.preview-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}.preview-help{background:#edf4fa;padding:12px;border-radius:9px}.sidechoice{display:block}.sidechoice label{max-width:360px}.bilateral-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.bilateral-cell{min-width:0;padding:10px;border:1px solid #dce4ee;border-radius:10px;background:#f8fafc}.bilateral-cell .scale{gap:7px}.bilateral-cell .scale output{min-width:36px}.bilateral-cell input[type=text]{width:100%}.shared-activity{display:block;width:100%;margin:0 0 10px}.bilateral-head{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0 4px}.bilateral-head strong{text-align:center;background:#e8f0f7;padding:10px;border-radius:8px}.bilateral-question{padding:14px 0;border-top:1px solid #e3e9ee}.bilateral-question>strong{display:block;margin-bottom:10px}.sidechoice label{margin:0}button:disabled{opacity:.5;cursor:not-allowed}footer{font-size:12px;color:#627487;margin:20px 0}@page{size:A4;margin:0}@media print{.pdf-preview{display:block!important}.preview-actions,.preview-help{display:none!important}body{background:white}.wrap{padding:16mm!important}body .wrap > *:not(.pdf-preview){display:none!important}.pdf-preview{border:0;padding:0!important;margin:0!important}.pdf-preview .report{display:block!important}.report-test{break-inside:avoid-page;page-break-inside:avoid}.report th:not(:first-child),.report td:not(:first-child){text-align:center;width:19%}.report h1{margin:0 0 12px}.report-note{font-size:10px;margin-top:18px}.wrap{padding:0}header,.tabs,.fields,.intro,.actions,.question,.scorepanel,.sidechoice,footer{display:none!important}.report{display:block!important}section{border:0;margin:0;padding:0}.report table{border-collapse:collapse;width:100%;font-size:12px}.report td,.report th{border:1px solid #ccd6df;padding:7px;text-align:left}.report h2{margin-top:24px}}@media(max-width:520px){.fields{grid-template-columns:1fr}.bilateral-grid{gap:6px}.bilateral-cell{padding:7px}.bilateral-cell .scale{flex-direction:column;align-items:stretch}.bilateral-cell .scale output{text-align:center}.bilateral-cell .ends{font-size:10px;gap:4px}.bilateral-head{gap:6px}}.initial-fieldset{border:1px solid #dce4ee;border-radius:10px;padding:14px;margin:14px 0}.initial-fieldset legend{font-weight:700;padding:0 6px}.initial-fieldset label{margin:10px 0}.initial-fieldset textarea{min-height:76px;resize:vertical}.initial-fieldset .choices{display:flex;flex-wrap:wrap;gap:12px}.initial-fieldset .choices label{display:flex;align-items:center;gap:6px}.initial-fieldset input[type=checkbox],.initial-fieldset input[type=radio]{accent-color:#1678ad}.initial-fieldset input[type=number]{max-width:110px;padding:8px;border:1px solid #bccbd9;border-radius:8px}.initial-fieldset small{display:block;color:#65778a}.initial-fieldset .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:520px){.initial-fieldset .row2{grid-template-columns:1fr}}</style><div class="wrap"><header><h1>Bilan initial – Épaule</h1><div>Profil · Symptômes · Sport · Objectifs · Disponibilité</div></header><section class="intro"><p>Bilan initial à remplir sur cet appareil puis transmettre le PDF par un canal sécurisé.</p><p>Le bilan est généré en fichier PDF directement, sans impression Safari. Le PDF est généré sur cet appareil, sans bibliothèque externe.</p></section><p class="muted" style="margin-top:14px"><a href="../" style="color:#1678ad">← Accueil</a></p><section class="fields"><label>Patient<input id="patient" type="text" placeholder="Nom du patient"></label><label>Date<input id="date" type="date"></label></section><section class="sidechoice"><label>Épaule concernée<select id="side"><option value="right">Droite</option><option value="left">Gauche</option><option value="both">Bilatérale</option></select></label></section><section><h2 id="heading"></h2><p class="muted" id="instructions"></p><div id="questions"></div></section><section class="scorepanel"><div class="score" id="score">—</div><p class="muted" id="completion"></p><div class="actions"><button id="print">Générer et enregistrer le PDF</button><button id="reset">Effacer les réponses</button></div></section><section class="pdf-preview" id="pdf-preview"><div class="preview-actions"><button type="button" id="print-now">Télécharger le PDF</button><button type="button" id="share-pdf">Partager le PDF (iPhone)</button><button type="button" id="close-preview">Retour au bilan</button></div><p class="preview-help" id="pdf-status">Le bilan initial est prêt. Touchez « Télécharger le PDF » pour obtenir un fichier sans en-tête ni pied de page Safari.</p><div class="report" id="report"></div></section><footer>Outil gratuit et hors ligne. Pour les données identifiantes de santé, utiliser un canal de transmission sécurisé. Ce formulaire complète le bilan clinique.</footer></div><script>
+const kjoc=[['Échauffement','Capacité à s’échauffer normalement avant le sport'],['Douleur','Absence de douleur gênante pendant la pratique'],['Force et fatigue','Force et résistance à la fatigue du bras concerné'],['Stabilité','Sentiment de stabilité de l’épaule pendant le sport'],['Conséquences sur la pratique','Absence de répercussions sur la participation sportive'],['Technique','Capacité à conserver sa technique habituelle'],['Puissance','Capacité à produire sa puissance habituelle'],['Endurance','Capacité à maintenir l’effort sportif'],['Précision et contrôle','Maîtrise et précision des gestes sportifs'],['Niveau sportif','Capacité à atteindre son niveau sportif souhaité']];
+const pain=['Douleur à son intensité maximale','Douleur en position allongée sur le côté concerné','Douleur en atteignant un objet en hauteur','Douleur en touchant l’arrière de la nuque','Douleur en poussant avec le bras concerné'];
+const disability=['Se laver les cheveux','Se laver le dos','Enfiler un vêtement par-dessus la tête','Enfiler une chemise ou un vêtement ouvert devant','Enfiler un pantalon','Placer un objet sur une étagère haute','Porter un objet lourd','Retirer un objet de la poche arrière'];
+const answers={right:{kjoc:Array(10).fill(null),spadi:Array(13).fill(null),psfs:Array(3).fill(null)},left:{kjoc:Array(10).fill(null),spadi:Array(13).fill(null),psfs:Array(3).fill(null)}};
+const names={right:['','',''],left:['','','']};let active='initial';let currentSide='right';const $=id=>document.getElementById(id);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function sides(){return $('side').value==='both'?['right','left']:[$('side').value]}
+function sideName(side){return side==='right'?'Droite':'Gauche'}
+function currentAnswers(){return answers[currentSide][active]}
+function getItems(){return active==='kjoc'?kjoc.map(x=>x[0]+' — '+x[1]):active==='spadi'?[...pain,...disability]:names[currentSide]}
+function getLabels(side){return active==='kjoc'?kjoc.map(x=>x[0]+' — '+x[1]):active==='spadi'?[...pain,...disability]:names[side]}
+const initialFields=[
+ {section:'Profil et historique',fields:[['age','Âge (facultatif)','number'],['sport','Sport principal','text'],['debut','Depuis quand les symptômes sont-ils présents ?','text'],['apparition','Mode d’apparition','select',['Progressive','Après un traumatisme','Incertaine / autre']],['diagnostic','Diagnostic / examens connus (facultatif)','textarea'],['antecedents','Antécédents, épisodes similaires ou traitements','textarea']]},
+ {section:'Symptômes et tolérance à la charge',fields:[['repos','Douleur au repos (0 à 10)','pain'],['effort','Douleur maximale à l’effort (0 à 10)','pain'],['reaction','Réaction après entraînement et à 24 h','textarea'],['nuit','Douleurs nocturnes ou perturbation du sommeil ?','select',['Non','Oui','Parfois']],['instabilite','Sensation d’instabilité, perte de force ou autres symptômes','textarea']]},
+ {section:'Pratique sportive',fields:[['frequence','Entraînements sportifs par semaine','select',['0','1–2','3–4','5 ou plus']],['niveau','Niveau / charges / volume habituels avant les symptômes','textarea'],['actuel','Entraînement actuel et adaptations déjà réalisées','textarea'],['mouvements','Trois mouvements les plus problématiques (avec charges/répétitions si possible)','textarea'],['possible','Mouvements actuellement bien tolérés','textarea']]},
+ {section:'Objectifs',fields:[['priorite','Objectif prioritaire : ce qui compte le plus pour vous','textarea'],['court','Court terme — 0 à 4 semaines','textarea'],['moyen','Moyen terme — 4 à 12 semaines','textarea'],['long','Long terme — 12 à 24 semaines et plus','textarea']]},
+ {section:'Disponibilité et matériel',fields:[['seances','Séances de rééducation possibles par semaine','select',['1','2']],['duree','Temps disponible par séance (30 min minimum)','select',['30 à 45 min','45 à 60 min','Plus de 60 min']],['organisation','Organisation préférée','select',['Séances spécifiques','Intégration aux entraînements','Mixte']],['materiel','Matériel disponible','checks',['Petits élastiques type yoga (mini-bands)','Élastiques longs','Haltères','Barre et disques','Poulie','Anneaux / barre de traction','Salle de sport / box','Aucun matériel']],['contraintes','Contraintes : emploi du temps, compétition, déplacements…','textarea']]}];
+const initialData={seances:'2',duree:'30 à 45 min',organisation:'Mixte',materiel:[]};
+function initialEntries(){return initialFields.flatMap(group=>group.fields)}
+function renderInitial(){
+ const root=$('questions');root.innerHTML='';
+ for(const group of initialFields){const fieldset=document.createElement('fieldset');fieldset.className='initial-fieldset';const legend=document.createElement('legend');legend.textContent=group.section;fieldset.append(legend);
+  for(const [key,label,type,opts] of group.fields){const holder=document.createElement('div');const lab=document.createElement('label');lab.textContent=label;holder.append(lab);let input;
+   if(type==='textarea'){input=document.createElement('textarea');input.rows=3}
+   else if(type==='select'){input=document.createElement('select');for(const v of ['Non renseigné',...opts]){const o=document.createElement('option');o.value=v==='Non renseigné'?'':v;o.textContent=v;input.append(o)}}
+   else if(type==='checks'){input=document.createElement('div');input.className='choices';for(const opt of opts){const item=document.createElement('label'),cb=document.createElement('input');cb.type='checkbox';cb.checked=(initialData[key]||[]).includes(opt);cb.onchange=()=>{const set=new Set(initialData[key]||[]);cb.checked?set.add(opt):set.delete(opt);initialData[key]=Array.from(set);update()};item.append(cb,document.createTextNode(opt));input.append(item)}}
+   else {input=document.createElement('input');input.type=type==='pain'||type==='number'?'number':'text';if(type==='pain'){input.min=0;input.max=10;input.step=1;input.placeholder='0 à 10'}if(type==='number'){input.min=0;input.max=120}}
+   if(type!=='checks'){input.value=initialData[key]||'';input.oninput=()=>{if(type==='pain'&&input.value!=='')input.value=String(Math.min(10,Math.max(0,Number(input.value))));initialData[key]=input.value;update()};input.onchange=input.oninput;}
+   holder.append(input);fieldset.append(holder)
+  }root.append(fieldset)
+ }
+}
+function render(){
+ if(active==='initial'){$('heading').textContent='Bilan initial — Rééducation de l’épaule';$('instructions').textContent='Informations déclarées par le patient pour préparer une programmation individualisée. Complément du bilan clinique.';renderInitial();document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===active)));update();return}
+ const title={kjoc:'KJOC – Fonction sportive',spadi:'SPADI – Douleur et incapacité',psfs:'PSFS – Activités personnalisées'};
+ const note={kjoc:'10 items. 0 = fonction très altérée ; 10 = fonction sportive optimale. Version française reformulée, non validée.',spadi:'13 items. 0 = aucune douleur/difficulté ; 10 = douleur maximale ou activité impossible. Adaptation de travail, non validée.',psfs:'Choisissez trois activités précises et reproductibles. 0 = incapable ; 10 = comme avant le problème.'};
+ $('heading').textContent=title[active];$('instructions').textContent=note[active];$('questions').innerHTML='';
+ const selected=sides(),bilateral=selected.length===2;
+ if(bilateral){const heads=document.createElement('div');heads.className='bilateral-head';heads.innerHTML='<strong>Épaule droite</strong><strong>Épaule gauche</strong>';$('questions').append(heads)}
+ const labels=getLabels(selected[0]);
+ labels.forEach((q,i)=>{
+  const el=document.createElement('div');el.className=bilateral?'bilateral-question':'question';
+  const name=active==='psfs'?'Activité '+(i+1):q;
+  el.innerHTML='<strong>'+(i+1)+'. '+esc(name)+'</strong>';
+  if(bilateral&&active==='psfs'){const activity=document.createElement('input');activity.type='text';activity.className='activity shared-activity';activity.placeholder='Ex. Snatch à 50 kg';activity.value=names.right[i]||names.left[i];activity.setAttribute('aria-label','Activité '+(i+1));activity.oninput=e=>{names.right[i]=e.target.value;names.left[i]=e.target.value};el.append(activity)}
+  const grid=document.createElement('div');if(bilateral)grid.className='bilateral-grid';
+  selected.forEach(side=>{
+   const a=answers[side][active],cell=document.createElement('div');cell.className=bilateral?'bilateral-cell':'';
+   cell.innerHTML=(active==='psfs'&&!bilateral?`<input type="text" class="activity" placeholder="Ex. Snatch à 50 kg" value="${esc(names[side][i])}">`:'')+`<div class="scale"><input type="range" min="0" max="10" step="1" value="${a[i]??5}" aria-label="${esc(name)} épaule ${sideName(side)}"><output>${a[i]===null?'—':a[i]+'/10'}</output></div><div class="ends"><span>0 · ${active==='spadi'?'Aucune douleur / difficulté':'Très limité'}</span><span>10 · ${active==='spadi'?'Maximum':'Capacité habituelle'}</span></div>`;
+   cell.querySelector('input[type=range]').oninput=e=>{a[i]=Number(e.target.value);cell.querySelector('output').textContent=e.target.value+'/10';update()};
+   if(active==='psfs'&&!bilateral)cell.querySelector('.activity').oninput=e=>names[side][i]=e.target.value;
+   grid.append(cell)
+  });el.append(grid);$('questions').append(el)
+ });
+ document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===active)));update()
+}
+function update(){if(active==='initial'){$('score').textContent='Bilan initial';const filled=initialEntries().filter(([key])=>Array.isArray(initialData[key])?initialData[key].length:!!initialData[key]).length;$('completion').textContent=filled+' / '+initialEntries().length+' champs renseignés (dont organisation préremplie)';return}const selected=sides(),parts=selected.map(side=>{const a=answers[side][active],done=a.filter(x=>x!==null).length,c=calculateFor(side,active);return {side,done,total:a.length,c}});
+ $('score').textContent=parts.map(p=>(selected.length===2?sideName(p.side)+' : ':'')+(p.c?p.c.value+' '+p.c.unit:'—')).join('  |  ');
+ $('completion').textContent=parts.map(p=>(selected.length===2?sideName(p.side)+' : ':'')+p.done+'/'+p.total+' réponses'+(p.c&&active==='spadi'?` · Douleur ${p.c.p}% · Incapacité ${p.c.d}%`:'' )).join(' | ')
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{active=b.dataset.tab;if(active==='psfs'&&sides().length===2){for(let i=0;i<3;i++){const shared=names.right[i]||names.left[i];names.right[i]=shared;names.left[i]=shared}}render();if(b.closest('#tabs-bottom'))document.getElementById('heading').scrollIntoView({behavior:'smooth',block:'start'})});
+$('reset').onclick=()=>{if(active==='initial'){if(!confirm('Effacer les réponses du bilan initial ?'))return;for(const key of Object.keys(initialData))delete initialData[key];Object.assign(initialData,{seances:'2',duree:'30 à 45 min',organisation:'Mixte',materiel:[]});render();return}if(!confirm('Effacer les réponses de ce questionnaire pour '+(sides().length===2?'les deux épaules':'cette épaule')+' ?'))return;for(const side of sides()){answers[side][active].fill(null);if(active==='psfs')names[side]=['','','']}render()};
+$('side').onchange=()=>{if($('side').value==='both'&&active==='psfs'){for(let i=0;i<3;i++){const shared=names.right[i]||names.left[i];names.right[i]=shared;names.left[i]=shared}}render()};
+function calculateFor(side,kind){const a=answers[side][kind];if(a.some(x=>x===null))return null;if(kind==='kjoc')return {value:a.reduce((x,y)=>x+y,0),unit:'/100'};if(kind==='psfs')return {value:(a.reduce((x,y)=>x+y,0)/3).toFixed(1),unit:'/10'};const p=a.slice(0,5).reduce((x,y)=>x+y,0)/50*100,d=a.slice(5).reduce((x,y)=>x+y,0)/80*100;return {value:((p+d)/2).toFixed(1),unit:'%',p:p.toFixed(1),d:d.toFixed(1)}}
+$('print').onclick=()=>{
+ const titles={kjoc:'KJOC – Fonction sportive',spadi:'SPADI – Douleur et incapacité',psfs:'PSFS – Activités personnalisées'};
+ const chosen=sides(),both=chosen.length===2;
+ let html=`<h1>Bilan initial – Épaule</h1><p><b>Patient :</b> ${esc($('patient').value||'Non renseigné')} &nbsp; <b>Date :</b> ${esc($('date').value||'Non renseignée')}</p><p><b>Évaluation :</b> ${both?'Bilatérale':'Épaule '+sideName(chosen[0]).toLowerCase()}</p>`;
+ for(const kind of ['kjoc','spadi','psfs']){
+   html+=`<div class="report-test"><h2>${titles[kind]}</h2>`;
+   html+='<table><thead><tr><th>Question / activité</th>' +chosen.map(side=>`<th>Épaule ${sideName(side).toLowerCase()}</th>`).join('')+'</tr></thead><tbody>';
+   const labels=kind==='kjoc'?kjoc.map(x=>x[0]+' — '+x[1]):kind==='spadi'?[...pain,...disability]:Array.from({length:3},(_,i)=>names.right[i]||names.left[i]||'Activité '+(i+1)+' non renseignée');
+   for(let i=0;i<labels.length;i++){
+     html+=`<tr><td>${esc(labels[i])}</td>`+chosen.map(side=>{const v=answers[side][kind][i];return `<td>${v===null?'Non renseignée':v+'/10'}</td>`}).join('')+'</tr>';
+   }
+   html+='</tbody><tfoot><tr><th>Score total</th>';
+   for(const side of chosen){const c=calculateFor(side,kind),a=answers[side][kind];html+=`<th>${c?esc(c.value+' '+c.unit):'Incomplet ('+a.filter(x=>x!==null).length+'/'+a.length+')'}</th>`}
+   html+='</tr>';
+   if(kind==='spadi')for(const sub of [['Douleur','p'],['Incapacité','d']]){html+=`<tr><td>${sub[0]}</td>`+chosen.map(side=>{const c=calculateFor(side,kind);return `<td>${c?c[sub[1]]+' %':'—'}</td>`}).join('')+'</tr>'}
+   html+='</tfoot></table></div>';
+ }
+ html+='<div class="report-test"><h2>Bilan initial — Rééducation de l’épaule</h2>';for(const group of initialFields){html+='<h3>'+esc(group.section)+'</h3><table><tbody>';for(const [key,label] of group.fields){const v=initialData[key];html+='<tr><td>'+esc(label)+'</td><td>'+esc(Array.isArray(v)?v.join(', '):(v||'Non renseigné'))+'</td></tr>'}html+='</tbody></table>'}html+='</div>'; 
+
+ $('report').innerHTML=html;
+ $('pdf-preview').classList.add('open');
+ $('pdf-preview').scrollIntoView({behavior:'smooth',block:'start'});
+ downloadPdf();
+};
+// PDF autonome, sans dépendance externe et sans impression Safari.
+function pdfText(v){return String(v).replace(/[\u2018\u2019]/g,"'").replace(/[\u2013\u2014]/g,'-').replace(/\u202f|\u00a0/g,' ').replace(/\u0153/g,'oe').replace(/\u0152/g,'OE').replace(/[^\x20-\x7e\u00c0-\u00ff]/g,' ')}
+function generatePdf(){
+ const chosen=sides(),both=chosen.length===2;
+ const titles={kjoc:'KJOC - Fonction sportive',spadi:'SPADI - Douleur et incapacité',psfs:'PSFS - Activités personnalisées'};
+ const W=595.28,H=841.89,left=40,right=555,top=42,bottom=45;
+ const pages=[];let commands=[],y=top;
+ const fmt=n=>Number(n).toFixed(2);
+ function enc(t){return pdfText(t).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)')}
+ function txt(t,x,baseline,size=9,bold=false){commands.push(`BT /${bold?'F2':'F1'} ${size} Tf 0 0 0 rg 1 0 0 1 ${fmt(x)} ${fmt(H-baseline)} Tm (${enc(t)}) Tj ET`)}
+ function line(x1,y1,x2,y2){commands.push(`0.72 0.78 0.84 RG 0.5 w ${fmt(x1)} ${fmt(H-y1)} m ${fmt(x2)} ${fmt(H-y2)} l S`)}
+ function rect(x,yy,w,h){commands.push(`0.72 0.78 0.84 RG 0.5 w ${fmt(x)} ${fmt(H-yy-h)} ${fmt(w)} ${fmt(h)} re S`)}
+ function newPage(){if(commands.length)pages.push(commands.join('\n'));commands=[];y=top}
+ function wrap(t,maxWidth,size=9){const max=Math.max(10,Math.floor(maxWidth/(size*.49)));const words=pdfText(t).split(/\s+/);const out=[];let l='';for(const word of words){if((l+' '+word).trim().length>max&&l){out.push(l);l=word}else l=(l+' '+word).trim();while(l.length>max){out.push(l.slice(0,max));l=l.slice(max)}}if(l)out.push(l);return out.length?out:['']}
+ function tableRow(cells,header=false){const widths=cells.length===2?[205,310]:(both?[315,100,100]:[415,100]),x=[left,left+widths[0],...(both?[left+widths[0]+widths[1]]:[])];const rows=cells.map((v,i)=>wrap(v,widths[i]-12,header?9:8.5));const ht=Math.max(25,Math.max(...rows.map(a=>a.length))*11+9);
+  if(y+ht>H-bottom){newPage();txt('Bilan initial - Epaule (suite)',left,y,11,true);y+=22}
+  let xx=left;for(let i=0;i<widths.length;i++){rect(xx,y,widths[i],ht);rows[i].forEach((v,j)=>txt(v,xx+6,y+14+j*11,header?9:8.5,header));xx+=widths[i]}y+=ht;
+ }
+ txt('Bilan initial - Epaule',left,y,17,true);y+=23;
+ txt('Patient : '+($('patient').value||'Non renseigné'),left,y,10);y+=16;
+ txt('Date : '+($('date').value||'Non renseignée')+'    Evaluation : '+(both?'Bilatérale':'Epaule '+sideName(chosen[0]).toLowerCase()),left,y,10);y+=25;
+ for(const kind of ['kjoc','spadi','psfs']){
+  if(y>H-bottom-90)newPage();txt(titles[kind],left,y,12,true);y+=13;
+  tableRow(['Question / activité',...chosen.map(side=>'Epaule '+sideName(side).toLowerCase())],true);
+  const labels=kind==='kjoc'?kjoc.map(x=>x[0]+' - '+x[1]):kind==='spadi'?[...pain,...disability]:Array.from({length:3},(_,i)=>names.right[i]||names.left[i]||'Activité '+(i+1)+' non renseignée');
+  for(let i=0;i<labels.length;i++)tableRow([labels[i],...chosen.map(side=>answers[side][kind][i]===null?'Non renseignée':answers[side][kind][i]+'/10')]);
+  tableRow(['Score total',...chosen.map(side=>{const c=calculateFor(side,kind),a=answers[side][kind];return c?c.value+' '+c.unit:'Incomplet ('+a.filter(x=>x!==null).length+'/'+a.length+')'})],true);
+  if(kind==='spadi')for(const [label,key] of [['Douleur','p'],['Incapacité','d']])tableRow([label,...chosen.map(side=>{const c=calculateFor(side,kind);return c?c[key]+' %':'-'})]);
+  y+=22;
+ }
+ if(y>H-bottom-80)newPage();txt('Bilan initial - Reeducation de l epaule',left,y,13,true);y+=25;
+ for(const group of initialFields){if(y>H-bottom-75)newPage();txt(group.section,left,y,11,true);y+=15;for(const [key,label] of group.fields){const v=initialData[key];tableRow([label,Array.isArray(v)?v.join(', '):(v||'Non renseigne')])}y+=16}
+ newPage();
+ const objects=[null];function add(str){objects.push(str);return objects.length-1}
+ const catalog=add('');const root=add('');const f1=add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>');const f2=add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>');const refs=[];
+ for(const content of pages){const stream=add(`<< /Length ${content.length} >>\nstream\n${content}\nendstream`);const page=add(`<< /Type /Page /Parent ${root} 0 R /MediaBox [0 0 ${W} ${H}] /Resources << /Font << /F1 ${f1} 0 R /F2 ${f2} 0 R >> >> /Contents ${stream} 0 R >>`);refs.push(page)}
+ objects[root]=`<< /Type /Pages /Kids [${refs.map(i=>i+' 0 R').join(' ')}] /Count ${refs.length} >>`;
+ objects[catalog]=`<< /Type /Catalog /Pages ${root} 0 R >>`;
+ let out='%PDF-1.4\n%PDF\n';const offsets=[0];for(let i=1;i<objects.length;i++){offsets.push(out.length);out+=`${i} 0 obj\n${objects[i]}\nendobj\n`}
+ const xref=out.length;out+=`xref\n0 ${objects.length}\n0000000000 65535 f \n`;for(let i=1;i<objects.length;i++)out+=String(offsets[i]).padStart(10,'0')+' 00000 n \n';out+=`trailer\n<< /Size ${objects.length} /Root ${catalog} 0 R >>\nstartxref\n${xref}\n%%EOF`;
+ const bytes=new Uint8Array(out.length);for(let i=0;i<out.length;i++)bytes[i]=out.charCodeAt(i)&255;
+ const clean=($('patient').value||'patient').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'_').slice(0,35);
+ return {blob:new Blob([bytes],{type:'application/pdf'}),filename:'Bilan_Initial_Epaule_'+clean+'_'+($('date').value||'date')+'.pdf'};
+}
+let lastPdf=null;
+function downloadPdf(){
+ try{
+  lastPdf=generatePdf();
+  const url=URL.createObjectURL(lastPdf.blob);
+  const a=document.createElement('a');a.href=url;a.download=lastPdf.filename;document.body.appendChild(a);a.click();a.remove();
+  $('pdf-status').textContent='PDF créé. Sur iPhone, si le téléchargement ne s’ouvre pas, utilisez le bouton ci-dessous pour afficher ou partager le fichier.';
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+ }catch(e){$('pdf-status').textContent=e.message;alert(e.message)}
+}
+$('print-now').onclick=downloadPdf;
+$('share-pdf').onclick=async()=>{
+ try{
+  const pdf=lastPdf||generatePdf();const file=new File([pdf.blob],pdf.filename,{type:'application/pdf'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})&&navigator.share){await navigator.share({files:[file],title:'Bilan initial Épaule'})}
+  else {const u=URL.createObjectURL(pdf.blob);window.open(u,'_blank');setTimeout(()=>URL.revokeObjectURL(u),60000)}
+ }catch(e){if(e.name!=='AbortError')alert('Partage impossible : '+e.message)}
+};
+$('close-preview').onclick=()=>{$('pdf-preview').classList.remove('open');$('score').scrollIntoView({behavior:'smooth',block:'start'})};
+$('date').value=new Date().toLocaleDateString('en-CA');render();
+</script></html>
